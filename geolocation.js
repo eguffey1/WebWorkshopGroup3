@@ -1,11 +1,7 @@
-<button onclick="getLocation()">Try It</button>
+document.onload = getLocation();
+var x = document.getElementById("geoError");
 
-<p id="demo"></p>
-
-<script>
-var x = document.getElementById("demo");
-
-function getLocation() {
+function getLocation(){
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition, showError);
   } else { 
@@ -45,4 +41,3 @@ function showError(error) {
       break;
   }
 }
-</script>
