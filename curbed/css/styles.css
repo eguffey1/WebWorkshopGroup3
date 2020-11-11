@@ -48,6 +48,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
+  padding-bottom: 8px;
   
 }
 .res__scroll .row{
@@ -66,6 +67,7 @@ p{
 /* Cuisine */
 #cuisine{
   padding: 15px 0 15px 5px;
+  margin-bottom: 3px;
 }
 /* Promotions */
 .promotions{
