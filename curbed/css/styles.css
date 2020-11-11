@@ -1,0 +1,90 @@
+body{
+  font-family: 'Noto sans';
+  color: #000000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Serif';
+  font-weight: 900;
+}
+/* Nav Bar */
+
+#header{
+  background-color:#EB6223;
+  padding: 0px;
+
+}
+.nav-link{
+
+}
+/* Orders */
+.orders{
+  padding: 15px 0 0 5px;
+}
+.res-name{
+  margin-bottom:0;
+}
+.min{
+  
+  font-size: 10px;
+  color: #BDBDBD;
+}
+/* Restaurants */
+
+#restaurants{
+ padding: 15px 0 15px 5px;
+}
+#res-item{
+  text-decoration: none;
+  color: #000000;
+}
+#res-item:hover{
+  color: #F37721;
+}
+.col{
+  width: auto;
+}
+.res__scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  
+}
+.res__scroll .row{
+  display:inline;
+}
+.res__scroll .res__scroll--box {
+  display: inline-block;
+  float: none;
+  padding-right:0px;
+  
+}
+
+p{
+  font-family:'Noto sans';
+}
+/* Cuisine */
+#cuisine{
+  padding: 15px 0 15px 5px;
+}
+/* Promotions */
+.promotions{
+  padding: 15px;
+}
+
+.card > p {
+  font-size: 12px;
+}
+/* footer */
+footer{
+  background-color: #EB6223;
+  bottom: 0;
+  width: 100%;
+  font-size: 10px;
+}
+.card-title{
+ color: #fff;
+}
+.card-text{
+color: #fff;
+}
