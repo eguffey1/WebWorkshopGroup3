@@ -113,6 +113,10 @@ color: #fff;
 #pro-header{
   text-align: center;
   padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 5px 0 rgba(0, 0, 0, 0.20);
+  background-color: #EB6223;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
  
  
 }
