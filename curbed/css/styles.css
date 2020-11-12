@@ -107,3 +107,18 @@ color: #fff;
 .icon-social{
   padding: 3px;
 }
+
+/* Profile */
+
+#pro-header{
+  text-align: center;
+  padding: 10px;
+ 
+ 
+}
+#info{
+  padding:10px;
+}
+#car-info{
+  padding:10px;
+}
