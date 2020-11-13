@@ -117,12 +117,19 @@ color: #fff;
   background-color: #EB6223;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
+  color: #fff;
  
  
 }
 #info{
-  padding:10px;
+  padding:20px 30px 0px 30px;
 }
 #car-info{
-  padding:10px;
+  padding:20px 30px 10px 30px;
+}
+.h6-info{
+  margin-bottom: 4px;
+}
+#name{
+  padding-top: 10px;
 }
