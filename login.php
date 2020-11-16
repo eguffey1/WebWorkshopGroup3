@@ -1,89 +1,55 @@
 <?php
-// Initialize the session
 session_start();
- 
-// Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: home.php");
     exit;
 }
- 
-// Include config file
 require_once "config.php";
- 
-// Define variables and initialize with empty values
+
 $username = $password = "";
 $username_err = $password_err = "";
- 
-// Processing form data when form is submitted
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Check if username is empty
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter username.";
     } else {
         $username = trim($_POST["username"]);
     }
-    
-    // Check if password is empty
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter your password.";
     } else {
         $password = trim($_POST["password"]);
     }
-    
-    // Validate credentials
+
     if(empty($username_err) && empty($password_err)){
-        // Prepare a select statement
         $sql = "SELECT id, username, password FROM users WHERE username = ?";
-        
         if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
-            
-            // Set parameters
             $param_username = $username;
-            
-            // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                // Store result
                 mysqli_stmt_store_result($stmt);
-                
-                // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
-                            // Password is correct, so start a new session
                             session_start();
-                            
-                            // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;                            
-                            
-                            // Redirect user to welcome page
-                            header("location: welcome.php");
+                            header("location: home.php");
                         } else {
-                            // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
                         }
                     }
                 } else {
-                    // Display an error message if username doesn't exist
                     $username_err = "No account found with that username.";
                 }
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
             }
-
-            // Close statement
             mysqli_stmt_close($stmt);
         }
     }
-    
-    // Close connection
     mysqli_close($link);
 }
 ?>
@@ -93,32 +59,37 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="images/favicon.ico" type="image">
 </head>
 <body>
-    <div class="wrapper">
-        <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
+
+    <div class="container">
+        <img id="logo" src="images/logo2.png" class="d-block mx-auto my-5">
+        <h2 style="font-size: 60px;" class="row">Login</h2>
+        <p style="font-size: 45px;" class="row">Please fill in your credentials to login.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+            <div class="form-group row<?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label for="username" style="font-size: 40px;">Username</label>
+                <input type="text" name="username" class="form-control" style="height: 70px; font-size: 40px;" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>    
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control">
+            <div class="form-group row<?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label for="password" style="font-size: 40px;">Password</label>
+                <input type="password" name="password" class="form-control" style="height: 70px; font-size: 40px;">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+            <div class="form-group row">
+                <input type="submit" class="btn btn-primary" value="Login" style="height: 70px; font-size: 40px;">
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+            <p class="row" style="font-size: 40px;">Don't have an account? <a href="register.php">&nbsp;Sign up now</a>.</p>
         </form>
+        <br />
+        <br />
+        <p style="font-size: 32px;" class="row">This site uses Location, JavaScript and Cookies. By signing in, you are consenting to their use.</p>
     </div>    
 </body>
 </html>

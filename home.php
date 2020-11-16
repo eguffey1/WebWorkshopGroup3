@@ -1,3 +1,6 @@
+<?php
+require_once "config.php";
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -36,16 +39,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="status.html">Order Number</a>
+                  <a class="nav-link" href="status.php">Order Number</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="profile.html">Profile</a>
+                  <a class="nav-link" href="profile.php">Profile</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="promo.html">Promotions</a>
+                  <a class="nav-link" href="promo.php">Promotions</a>
                 </li>
               </ul>
             </div>
@@ -59,7 +62,7 @@
      <div class="res__scroll">
       <div class="row text">
         <div class="col res__scroll--box">
-          <img src="images/brunch.jpg" alt="" width="150px" height="100px">
+        <a href="status.php"><img src="images/brunch.jpg" alt="" width="150px" height="100px"></a>
             <p class="res-name">Brunch In</p>
             <p class="min">30-40 min</p>
         </div>
@@ -81,8 +84,8 @@
       <div class="res__scroll">
         <div class="row text">
           <div class="col res__scroll--box">
-            <a href="restaurant.html"><img src="images/burger.jpg" alt="" width="150px" height="100px"></a>
-            <a href="restaurant.html" id="res-item"><p class="res-name">The Big Five</p></a>
+            <a href="restaurant.php"><img src="images/burger.jpg" alt="" width="150px" height="100px"></a>
+            <a href="restaurant.php" id="res-item"><p class="res-name">The Big Five</p></a>
             <p class="min">Burgers and Smoothies</p>
           </div>
           <div class="col res__scroll--box">
@@ -127,8 +130,8 @@
       <div class="res__scroll">
         <div class="row text">
           <div class="col res__scroll--box">
-            <a href="restaurant.html"><img src="images/vegan.jpg" alt="" width="150px" height="100px"></a>
-            <a href="restaurant.html" id="res-item"><p class="res-name">Vegan</p></a>
+            <a href="restaurant.php"><img src="images/vegan.jpg" alt="" width="150px" height="100px"></a>
+            <a href="restaurant.php" id="res-item"><p class="res-name">Vegan</p></a>
           </div>
           <div class="col res__scroll--box">
             <img src="images/italian.jpg" alt="some italian dishes" width="150px" height="100px">
@@ -160,7 +163,7 @@
       <img src="images/instagram-logo.png">
     </a>
     <div>
-      <p class="p-foot">DIG4101C</p>
+      <p class="p-foot">DIG4104C</p>
       <p class="p-foot">Created by: Erickson Guffey, Hal Jundzil, Dykota Baker, Lora Abdulhak, Leidy Pulido</p>
       <p class="p-foot"></p>This is not a real website.</p>
     </div>
@@ -169,5 +172,5 @@
   </div>
   
   </body>
-  <script src="../geolocation.js"></script>
+  <script src="js/geolocation.js"></script>
 </html>

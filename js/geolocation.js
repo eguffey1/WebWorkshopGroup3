@@ -14,8 +14,8 @@ function showPosition(position) {
 var restL = 28.531 //This is Restaurant Latitude
 var restO = -81.729 //This is Restaurant Longitude
 
-var posL = position.coords.latitude.toFixed(3);
-var posO = position.coords.longitude.toFixed(3);
+var posL = position.coords.latitude.toFixed(3); //This is user latitude reduced
+var posO = position.coords.longitude.toFixed(3); //User longitude reduced
 
 if (posL == restL && posO == restO) {
 	alert("This will send arrival notice to restaurant");
